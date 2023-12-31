@@ -1,0 +1,475 @@
+---
+import { Image } from "astro:assets";
+import adaanImage from "../assets/pempek/adaan.webp";
+import campurImage from "../assets/pempek/campur.webp";
+import kulitImage from "../assets/pempek/kulit.webp";
+import lengkapImage from "../assets/pempek/lengkap.webp";
+import lengkap2Image from "../assets/pempek/lengkap2.webp";
+import lenjerImage from "../assets/pempek/lenjer.webp";
+import paketImage from "../assets/pempek/paket.webp";
+import telurImage from "../assets/pempek/telur.webp";
+
+    function getRecommendedProducts(currentProductUrl, allProducts) {
+    const otherProducts = allProducts.filter(product => product.url !== currentProductUrl);
+    return otherProducts.sort(() => 0.5 - Math.random()).slice(0, 4);
+}
+const Pages = [
+        {
+            name: "Pempek Adaan",
+            title: "Pempek Adaan - Sensasi Gigitan Kecil yang Memikat",
+            extendedDescription:
+                "Pempek Adaan kami adalah kecil namun penuh cita rasa. Dibuat dengan teknik tradisional dan bahan-bahan pilihan, pempek bulat ini sempurna untuk dinikmati dalam satu gigitan. Ideal untuk camilan sehat dan lezat di tengah kesibukan Anda.",
+            imageSrc: adaanImage,
+            price: "$2",
+            url: "pempek-adaan",
+            testimonial:
+                "Pempek Adaan dari Pempek Queen benar-benar unik! Rasanya lezat dan ukurannya pas untuk snack.",
+            nutritionalInfo:
+                "Tiap pempek Adaan hanya mengandung ... kalori dan dibuat tanpa MSG.",
+            servingSuggestion:
+                "Cobalah dengan cuka khas kami untuk menambah kenikmatan.",
+        },
+        {
+            name: "Pempek Campur",
+            title: "Pempek Campur - Variasi Rasa dalam Satu Paket",
+            extendedDescription:
+                "Nikmati kekayaan rasa dari berbagai jenis pempek dalam paket Pempek Campur kami. Paket ini menyediakan variasi pempek pilihan untuk memenuhi selera Anda dan keluarga.",
+            imageSrc: campurImage,
+            price: "$6",
+            url: "pempek-campur",
+            testimonial:
+                "Setiap gigitan Pempek Campur memberikan kejutan rasa yang berbeda!",
+            nutritionalInfo:
+                "Informasi nutrisi tersedia untuk setiap jenis pempek dalam paket.",
+            servingSuggestion:
+                "Sempurna untuk dinikmati bersama keluarga dan teman.",
+        },
+        {
+            name: "Pempek Kulit",
+            title: "Pempek Kulit - Keunikan Tekstur untuk Pengalaman Rasa Berbeda",
+            extendedDescription:
+                "Dibuat dari kulit ikan pilihan, Pempek Kulit kami menawarkan tekstur unik dan rasa yang tak tertandingi. Ideal bagi Anda yang mencari variasi dalam pempek tradisional.",
+            imageSrc: kulitImage,
+            price: "$4",
+            url: "pempek-kulit",
+            testimonial:
+                "Pempek Kulit memberi sensasi gigitan yang luar biasa, beda dari yang lain!",
+            nutritionalInfo: "Pempek Kulit kaya akan protein dan rendah lemak.",
+            servingSuggestion:
+                "Nikmati dengan saus cuko khas kami untuk rasa yang lebih intens.",
+        },
+        {
+            name: "Pempek Lengkap",
+            title: "Pempek Lengkap - Pesta Rasa dalam Satu Piring",
+            extendedDescription:
+                "Pempek Lengkap kami disajikan dengan set lengkap pelengkap, memberikan Anda pengalaman makan pempek yang autentik dan memuaskan.",
+            imageSrc: lengkapImage,
+            price: "$7",
+            url: "pempek-lengkap",
+            testimonial:
+                "Pempek Lengkap adalah pilihan sempurna untuk menikmati berbagai elemen pempek dalam satu sajian.",
+            nutritionalInfo:
+                "Menyajikan berbagai nutrisi dari komponen pempek dan pelengkapnya.",
+            servingSuggestion:
+                "Cocok disajikan sebagai makanan utama untuk makan siang atau makan malam.",
+        },
+        {
+            name: "Pempek Lengkap 2",
+            title: "Pempek Lengkap Istimewa - Variasi Lezat dari Klasik",
+            extendedDescription:
+                "Versi istimewa dari Pempek Lengkap kami, dengan set sisi yang berbeda untuk pengalaman rasa baru.",
+            imageSrc: lengkap2Image,
+            price: "$7.5",
+            url: "pempek-lengkap-istimewa",
+            testimonial:
+                "Sajian Pempek Lengkap Istimewa ini sungguh memanjakan lidah!",
+            nutritionalInfo:
+                "Setiap komponen disiapkan dengan pertimbangan nutrisi dan rasa.",
+            servingSuggestion:
+                "Ideal untuk dinikmati saat acara kumpul-kumpul atau makan malam spesial.",
+        },
+        {
+            name: "Pempek Lenjer",
+            title: "Pempek Lenjer - Panjang, Ramping, dan Penuh Rasa",
+            extendedDescription:
+                "Pempek Lenjer kami adalah pilihan sempurna untuk snacking yang sehat dan lezat. Panjang dan ramping, pempek ini mudah dimakan dan penuh dengan rasa ikan segar.",
+            imageSrc: lenjerImage,
+            price: "$3",
+            url: "pempek-lenjer",
+            testimonial: "Saya suka bentuknya yang unik dan rasanya yang kaya!",
+            nutritionalInfo:
+                "Rendah kalori namun tinggi protein, cocok untuk camilan sehat.",
+            servingSuggestion:
+                "Nikmati dengan saus asam manis untuk tambahan rasa.",
+        },
+        {
+            name: "Pempek Paket",
+            title: "Pempek Paket Istimewa - Kombinasi Sempurna untuk Penggemar Pempek",
+            extendedDescription:
+                "Paket istimewa kami menawarkan kombinasi beragam jenis pempek, memberikan Anda kesempatan untuk mencicipi berbagai rasa dan tekstur dalam satu paket.",
+            imageSrc: paketImage,
+            price: "$10",
+            url: "pempek-paket-istimewa",
+            testimonial:
+                "Paket lengkap untuk merasakan semua jenis pempek favorit saya!",
+            nutritionalInfo:
+                "Paket lengkap dengan berbagai sumber nutrisi dari masing-masing jenis pempek.",
+            servingSuggestion:
+                "Bagus untuk makan malam keluarga atau sebagai hadiah untuk pecinta pempek.",
+        },
+        {
+            name: "Pempek Telur",
+            title: "Pempek Telur - Sentuhan Telur untuk Kenikmatan Ganda",
+            extendedDescription:
+                "Pempek Telur kami menggabungkan lembutnya ikan dengan kenikmatan telur di tengahnya, menciptakan harmoni rasa yang sempurna.",
+            imageSrc: telurImage,
+            price: "$5",
+            url: "pempek-telur",
+            testimonial:
+                "Pempek Telur ini benar-benar memuaskan dengan sentuhan telur yang lezat!",
+            nutritionalInfo:
+                "Menawarkan keseimbangan protein dari ikan dan telur.",
+            servingSuggestion:
+                "Sempurna dinikmati sebagai makan siang yang mengenyangkan.",
+        },
+    ];
+// Assuming `Pages` contains all your products
+export async function getStaticPaths() {
+    const Pages = [
+        {
+            name: "Pempek Adaan",
+            title: "Pempek Adaan - Sensasi Gigitan Kecil yang Memikat",
+            extendedDescription:
+                "Pempek Adaan kami adalah kecil namun penuh cita rasa. Dibuat dengan teknik tradisional dan bahan-bahan pilihan, pempek bulat ini sempurna untuk dinikmati dalam satu gigitan. Ideal untuk camilan sehat dan lezat di tengah kesibukan Anda.",
+            imageSrc: adaanImage,
+            price: "$2",
+            url: "pempek-adaan",
+            testimonial:
+                "Pempek Adaan dari Pempek Queen benar-benar unik! Rasanya lezat dan ukurannya pas untuk snack.",
+            nutritionalInfo:
+                "Tiap pempek Adaan hanya mengandung ... kalori dan dibuat tanpa MSG.",
+            servingSuggestion:
+                "Cobalah dengan cuka khas kami untuk menambah kenikmatan.",
+        },
+        {
+            name: "Pempek Campur",
+            title: "Pempek Campur - Variasi Rasa dalam Satu Paket",
+            extendedDescription:
+                "Nikmati kekayaan rasa dari berbagai jenis pempek dalam paket Pempek Campur kami. Paket ini menyediakan variasi pempek pilihan untuk memenuhi selera Anda dan keluarga.",
+            imageSrc: campurImage,
+            price: "$6",
+            url: "pempek-campur",
+            testimonial:
+                "Setiap gigitan Pempek Campur memberikan kejutan rasa yang berbeda!",
+            nutritionalInfo:
+                "Informasi nutrisi tersedia untuk setiap jenis pempek dalam paket.",
+            servingSuggestion:
+                "Sempurna untuk dinikmati bersama keluarga dan teman.",
+        },
+        {
+            name: "Pempek Kulit",
+            title: "Pempek Kulit - Keunikan Tekstur untuk Pengalaman Rasa Berbeda",
+            extendedDescription:
+                "Dibuat dari kulit ikan pilihan, Pempek Kulit kami menawarkan tekstur unik dan rasa yang tak tertandingi. Ideal bagi Anda yang mencari variasi dalam pempek tradisional.",
+            imageSrc: kulitImage,
+            price: "$4",
+            url: "pempek-kulit",
+            testimonial:
+                "Pempek Kulit memberi sensasi gigitan yang luar biasa, beda dari yang lain!",
+            nutritionalInfo: "Pempek Kulit kaya akan protein dan rendah lemak.",
+            servingSuggestion:
+                "Nikmati dengan saus cuko khas kami untuk rasa yang lebih intens.",
+        },
+        {
+            name: "Pempek Lengkap",
+            title: "Pempek Lengkap - Pesta Rasa dalam Satu Piring",
+            extendedDescription:
+                "Pempek Lengkap kami disajikan dengan set lengkap pelengkap, memberikan Anda pengalaman makan pempek yang autentik dan memuaskan.",
+            imageSrc: lengkapImage,
+            price: "$7",
+            url: "pempek-lengkap",
+            testimonial:
+                "Pempek Lengkap adalah pilihan sempurna untuk menikmati berbagai elemen pempek dalam satu sajian.",
+            nutritionalInfo:
+                "Menyajikan berbagai nutrisi dari komponen pempek dan pelengkapnya.",
+            servingSuggestion:
+                "Cocok disajikan sebagai makanan utama untuk makan siang atau makan malam.",
+        },
+        {
+            name: "Pempek Lengkap 2",
+            title: "Pempek Lengkap Istimewa - Variasi Lezat dari Klasik",
+            extendedDescription:
+                "Versi istimewa dari Pempek Lengkap kami, dengan set sisi yang berbeda untuk pengalaman rasa baru.",
+            imageSrc: lengkap2Image,
+            price: "$7.5",
+            url: "pempek-lengkap-istimewa",
+            testimonial:
+                "Sajian Pempek Lengkap Istimewa ini sungguh memanjakan lidah!",
+            nutritionalInfo:
+                "Setiap komponen disiapkan dengan pertimbangan nutrisi dan rasa.",
+            servingSuggestion:
+                "Ideal untuk dinikmati saat acara kumpul-kumpul atau makan malam spesial.",
+        },
+        {
+            name: "Pempek Lenjer",
+            title: "Pempek Lenjer - Panjang, Ramping, dan Penuh Rasa",
+            extendedDescription:
+                "Pempek Lenjer kami adalah pilihan sempurna untuk snacking yang sehat dan lezat. Panjang dan ramping, pempek ini mudah dimakan dan penuh dengan rasa ikan segar.",
+            imageSrc: lenjerImage,
+            price: "$3",
+            url: "pempek-lenjer",
+            testimonial: "Saya suka bentuknya yang unik dan rasanya yang kaya!",
+            nutritionalInfo:
+                "Rendah kalori namun tinggi protein, cocok untuk camilan sehat.",
+            servingSuggestion:
+                "Nikmati dengan saus asam manis untuk tambahan rasa.",
+        },
+        {
+            name: "Pempek Paket",
+            title: "Pempek Paket Istimewa - Kombinasi Sempurna untuk Penggemar Pempek",
+            extendedDescription:
+                "Paket istimewa kami menawarkan kombinasi beragam jenis pempek, memberikan Anda kesempatan untuk mencicipi berbagai rasa dan tekstur dalam satu paket.",
+            imageSrc: paketImage,
+            price: "$10",
+            url: "pempek-paket-istimewa",
+            testimonial:
+                "Paket lengkap untuk merasakan semua jenis pempek favorit saya!",
+            nutritionalInfo:
+                "Paket lengkap dengan berbagai sumber nutrisi dari masing-masing jenis pempek.",
+            servingSuggestion:
+                "Bagus untuk makan malam keluarga atau sebagai hadiah untuk pecinta pempek.",
+        },
+        {
+            name: "Pempek Telur",
+            title: "Pempek Telur - Sentuhan Telur untuk Kenikmatan Ganda",
+            extendedDescription:
+                "Pempek Telur kami menggabungkan lembutnya ikan dengan kenikmatan telur di tengahnya, menciptakan harmoni rasa yang sempurna.",
+            imageSrc: telurImage,
+            price: "$5",
+            url: "pempek-telur",
+            testimonial:
+                "Pempek Telur ini benar-benar memuaskan dengan sentuhan telur yang lezat!",
+            nutritionalInfo:
+                "Menawarkan keseimbangan protein dari ikan dan telur.",
+            servingSuggestion:
+                "Sempurna dinikmati sebagai makan siang yang mengenyangkan.",
+        },
+    ];
+    return Pages.map((post) => {
+        return {
+            params: { pempek: post.url },
+            props: { post },
+        };
+    });
+}
+import Navigation from "@/components/global/Navigation.astro";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+const { pempek } = Astro.params;
+const recommendedProducts = getRecommendedProducts(pempek, Pages);
+
+const { post } = Astro.props;
+import Products from "../components/product/each.astro";
+---
+
+<BaseLayout>
+    <Navigation />
+    <!-- component -->
+    <section class="text-negroni-500 font-bold overflow-hidden" >
+        
+        <div class="container px-5 py-14 mx-auto">
+            <div class="lg:w-4/5 mx-auto flex flex-wrap">
+                <Image
+                    class="lg:w-1/2 w-full object-cover object-center rounded-3xl shadow-2xl border border-gray-200"
+                    src={post.imageSrc}
+                    alt=`gambar dari ${post.extendedDescription}`
+                />
+                <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                    <h2
+                        class="text-sm title-font text-gray-100 tracking-widest"
+                    >
+                        {post.name}
+                    </h2>
+                    <h1
+                        class="text-gray-200 text-3xl title-font font-bold mb-1"
+                    >
+                        {post.title}
+                    </h1>
+                  <!--   <div class="flex mb-4">
+                        <span class="flex items-center">
+                            <svg
+                                fill="currentColor"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                class="w-4 h-4 text-red-500"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                                ></path>
+                            </svg>
+                            <svg
+                                fill="currentColor"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                class="w-4 h-4 text-red-500"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                                ></path>
+                            </svg>
+                            <svg
+                                fill="currentColor"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                class="w-4 h-4 text-red-500"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                                ></path>
+                            </svg>
+                            <svg
+                                fill="currentColor"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                class="w-4 h-4 text-red-500"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                                ></path>
+                            </svg>
+                            <svg
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                class="w-4 h-4 text-red-500"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                                ></path>
+                            </svg>
+                            <span class="text-gray-200 ml-3">4 Reviews</span>
+                        </span>
+                        <span
+                            class="flex ml-3 pl-3 py-2 border-l-2 border-gray-200"
+                        >
+                            <a class="text-gray-100">
+                                <svg
+                                    fill="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    class="w-5 h-5"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+                                    ></path>
+                                </svg>
+                            </a>
+                            <a class="ml-2 text-gray-100">
+                                <svg
+                                    fill="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    class="w-5 h-5"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
+                                    ></path>
+                                </svg>
+                            </a>
+                            <a class="ml-2 text-gray-100">
+                                <svg
+                                    fill="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    class="w-5 h-5"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"
+                                    ></path>
+                                </svg>
+                            </a>
+                        </span>
+                    </div> -->
+                    <p class="leading-relaxed">{post.extendedDescription}</p>
+                    <p class="leading-relaxed">{post.nutritionalInfo}</p>
+                    <p class="leading-relaxed">{post.servingSuggestion}</p>
+                    <div
+                        class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5"
+                    >
+                    </div>
+                    <div class="flex flex-col gap-1 md:flex-row justify-center align-middle">
+                        <span
+                            class="title-font mx-auto font-bold text-2xl text-gray-100"
+                            >{post.price}</span
+                        >
+                        <button
+                            class="flex mx-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
+                            >Masukkan Keranjang</button
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div
+            class="mx-auto bg-white/20 shadow-neutral-50 rounded-md backdrop-blur-lg max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8"
+        >
+            <header>
+                <h2 class="text-xl font-bold text-gray-100 sm:text-3xl">
+                    Kamu Pasti Suka ini Juga 🤤😋🤤
+                </h2>
+
+                <p class="mt-4 max-w-md text-gray-100">
+                    Setiap komponen disiapkan dengan pertimbangan nutrisi dan
+                    rasa, Bikin Perut Krucuk Kerucuk
+                </p>
+            </header>
+
+            <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {recommendedProducts.map(product => (
+                  <a href={product.url}>
+                    <Image
+                      class="w-full aspect-square rounded-3xl shadow-2xl"
+                      src={product.imageSrc}
+                      alt={`gambar dari ${product.extendedDescription}`}
+                    />
+                    <div class="mt-4 flex justify-between px-6">
+                      <div>
+                        <h3 class="text-md md:text-xl text-negroni-500">
+                          {product.name}
+                        </h3>
+                        <p class="mt-1 text-lg font-medium leading-6 text-white">
+                          {product.extendedDescription}
+                        </p>
+                      </div>
+                      <p class="text-base text-tomato-500">{product.price}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+        </div>
+    </section>
+</BaseLayout>

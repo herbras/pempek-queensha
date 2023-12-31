@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import Maskot from "../../assets/pempek/maskot.webp";
+---
+
+<header
+    class="font-mono top-0 z-40 flex-none mx-auto w-full rounded-md bg-white dark:bg-[#050505]/20"
+    id="header"
+    style="transition: transform 0.5s ease 0s; transform: translateY(0px);"
+>
+    <div class="mx-auto flex lg:justify-between md:px-4">
+        <div class="py-6 px-4">
+            <button
+                class="items-center h-12 justify-between 
+                rounded-full font-semibold duration-200 focus:outline-none 
+                inline-flex px-3 md:px-6 md:py-3 text-center w-full border-2 
+                hover:bg-transparent border-negroni-500 bg-negroni-500 
+                focus-visible:outline-negroni-500 focus-visible:ring-negroni-500
+                 hover:border-negroni-500 hover:text-negroni-500 lg:w-auto text-charcoal-500"
+                onclick="goBack();"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M5 12l4 4" /><path d="M5 12l4 -4" /></svg> &nbsp; <span class="hidden md:block">Kembali</span>
+            </button>
+        </div>
+
+        <script is:inline>
+            function goBack() {
+                window.history.back();
+                window.scrollTo(0, 0);
+            }
+        </script>
+
+        <div class="flex top-0 gap-2 px-4 py-6 justify-between">
+            <a
+                href="/"
+                class="flex gap-2 items-center text-transparent bg-clip-text bg-gradient-to-br bg-gradient-to-r from-[#4FD1C5] to-[#38B2AC] dark:from-[#63b3ed] dark:to-[#4299e1] hover:from-[rgba(79,209,197,0.8)] hover:to-[rgba(56,178,172,0.8)] focus:ring focus:ring-[#4FD1C5] focus:ring-opacity-50 active:from-[rgba(56,178,172,0.8)] active:to-[rgba(79,209,197,0.8)] dark:text-white decoration-none leading-4 font-700 text-2xl md:text-3xl font-mono"
+            >
+                <Image
+                    src={Maskot}
+                    alt="asa"
+                    class="w-12 rounded-full mx-auto"
+                />
+
+                 Pempek Queensha
+            </a>
+        </div>
+
+        <nav
+            class="relative bottom-0 items-center contents w-full sm:w-auto hidden lg:flex justify-between"
+            aria-label="Main navigation"
+        >
+            <a
+                class="items-center h-12 justify-center rounded-full font-semibold duration-200 focus:outline-none inline-flex p-3 text-center w-full border-2 hover:bg-transparent border-negroni-500 outline-negroni-500 ring-negroni-500 hover:border-negroni-500 hover:text-negroni-500 lg:w-auto text-charcoal-500"
+                href="#"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-9 h-9 text-white"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    ><path stroke="none" d="M0 0h24v24H0z" fill="none"
+                    ></path><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"
+                    ></path><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"
+                    ></path><path d="M17 17h-11v-14h-2"></path><path
+                        d="M6 5l14 1l-1 7h-13"></path></svg
+                ></a
+            >
+        </nav>
+    </div>
+</header>

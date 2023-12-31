@@ -1,0 +1,18 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/global/Footer.astro";
+import { ViewTransitions } from 'astro:transitions';
+---
+
+<html  transition:animate="none" lang="id">
+  <head>
+    <BaseHead />
+    <ViewTransitions />
+  </head>
+
+  <body class="bg-charcoal-500">
+   
+    <slot />
+<Footer/>
+  </body>
+</html>

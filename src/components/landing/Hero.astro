@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import Maskot from "../../assets/pempek/maskot.webp";
+---
+<main class="relative overflow-hidden">
+  <div class="relative mx-auto px-8 max-w-7xl py-24 md:px-12">
+    <Image src={Maskot} alt='asa' class='w-24 rounded-full mx-auto'/>
+
+    <div class="mx-auto text-center" style="margin-top: 45pt;">
+      
+      <h1
+        class="text-negroni-500 font-bold md:text-6xl text-3xl tracking-tight"
+      >
+        Selamat Datang di<span class="md:block"> Pempek Queen</span>
+      </h1>
+      <h2 class="mt-8 text-lg md:text-2xl text-white">
+        Nikmati Pempek Non-MSG dan Organik, Nikmati Hidup Sehat!
+      </h2>
+      <div class="flex justify-center flex-col gap-3 mt-10 sm:flex-row">
+        <a
+          class="items-center h-12 justify-center font-semibold rounded-full border-negroni-500 duration-200 focus:outline-none inline-flex px-6 py-3 text-center w-full text-negroni-500 lg:w-auto border focus-visible:outline-negroni-500 text-negroni-500/80"
+          href="#"
+        >
+        <svg xmlns="http://www.w3.org/2000/svg"   class="w-8 h-8" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l.867 12.143a2 2 0 0 0 2 1.857h10.276a2 2 0 0 0 2 -1.857l.867 -12.143h-16z" /><path d="M8.5 7c0 -1.653 1.5 -4 3.5 -4s3.5 2.347 3.5 4" /><path d="M9.5 17c.413 .462 1 1 2.5 1s2.5 -.897 2.5 -2s-1 -1.5 -2.5 -2s-2 -1.47 -2 -2c0 -1.104 1 -2 2 -2s1.5 0 2.5 1" /></svg>
+        </a>
+        <a
+          class="items-center h-12 justify-center font-semibold rounded-full border-negroni-500 duration-200 focus:outline-none inline-flex px-6 py-3 text-center w-full text-negroni-500 lg:w-auto border focus-visible:outline-negroni-500 text-negroni-500/80"
+          href="https://shopee.com"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-8 h-8"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+              d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917z"
+            ></path></svg
+          >
+        </a>
+
+        <a
+          class="items-center h-12 justify-center rounded-full font-semibold duration-200 focus:outline-none inline-flex px-6 py-3 text-center w-full border-2 hover:bg-transparent border-negroni-500 bg-negroni-500 focus-visible:outline-negroni-500 focus-visible:ring-negroni-500 hover:border-negroni-500 hover:text-negroni-500 lg:w-auto text-charcoal-500"
+          href="#">Beli Pempek disini  &nbsp; →</a
+        >
+      </div>
+    </div>
+  </div>
+</main>

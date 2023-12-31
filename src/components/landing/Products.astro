@@ -1,0 +1,102 @@
+---
+import { Image } from 'astro:assets';
+import adaanImage from "../../assets/pempek/adaan.webp";
+import campurImage from "../../assets/pempek/campur.webp";
+import kulitImage from "../../assets/pempek/kulit.webp";
+import lengkapImage from "../../assets/pempek/lengkap.webp";
+import lengkap2Image from "../../assets/pempek/lengkap2.webp";
+import lenjerImage from "../../assets/pempek/lenjer.webp";
+import paketImage from "../../assets/pempek/paket.webp";
+import telurImage from "../../assets/pempek/telur.webp";
+const pempekItems = [
+  {
+    "name": "Pempek Adaan",
+    "description": "Smaller, round pempek, easy to eat in one bite.",
+    "imageSrc": adaanImage,
+    "price": "$2",
+    "url" : "pempek-adaan"
+  },
+  {
+    "name": "Pempek Campur",
+    "description": "A variety pack of different pempek types.",
+    "imageSrc": campurImage,
+    "price": "$6",
+    "url" : "pempek-campur"
+  },
+  {
+    "name": "Pempek Kulit",
+    "description": "Pempek made from fish skin, offering a unique texture.",
+    "imageSrc": kulitImage,
+    "price": "$4",
+    "url" : "pempek-kulit"
+  },
+  {
+    "name": "Pempek Lengkap",
+    "description": "Pempek served with a complete set of accompaniments.",
+    "imageSrc": lengkapImage,
+    "price": "$7",
+    "url" : "pempek-lengkap"
+  },
+  {
+    "name": "Pempek Lengkap 2",
+    "description": "Another version of Pempek Lengkap with a different set of sides.",
+    "imageSrc": lengkap2Image,
+    "price": "$7.5",
+    "url" : "pempek-lengkap-istimewa"
+  },
+  {
+    "name": "Pempek Lenjer",
+    "description": "Long and slender pempek, perfect for snacking.",
+    "imageSrc": lenjerImage,
+    "price": "$3",
+    "url" : "pempek-lenjer"
+  },
+  {
+    "name": "Pempek Paket",
+    "description": "A bundled package of pempek for a full experience.",
+    "imageSrc": paketImage,
+    "price": "$10",
+    "url" : "pempek-paket-istimewa"
+  },
+  {
+    "name": "Pempek Telur",
+    "description": "A pempek variant that features an egg as the central ingredient.",
+    "imageSrc": telurImage,
+    "price": "$5",
+    "url" : "pempek-telur"
+  }
+];
+
+
+
+---
+
+<main  >
+
+  <div class="relative mx-auto px-8 max-w-7xl py-12   md:px-12">
+    <div
+      class="grid grid-cols-1 gap-6 lg:gap-y-32 md:grid-cols-3 ">
+      {pempekItems.map(item => (
+  <a href={item.url}>        <Image
+          class="w-full aspect-square rounded-3xl shadow-2xl"
+          src={item.imageSrc}
+          alt=`gambar dari ${item.description}`
+         
+        />
+
+        <div class="mt-4 flex justify-between px-6">
+          <div>
+            <h3 class="text-sm text-negroni-500">
+            
+               {item.name}
+            </h3>
+            <p class="mt-1 text-lg font-medium leading-6 text-white">{item.description}</p>
+          </div>
+          <p class="text-base text-tomato-500">{item.price}</p>
+        </div>
+      </a>
+))}
+     
+    </div>
+  </div>
+</main>

@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+import adaanImage from "../../assets/pempek/adaan.webp";
+import campurImage from "../../assets/pempek/campur.webp";
+import kulitImage from "../../assets/pempek/kulit.webp";
+import lengkapImage from "../../assets/pempek/lengkap.webp";
+import lengkap2Image from "../../assets/pempek/lengkap2.webp";
+import lenjerImage from "../../assets/pempek/lenjer.webp";
+import paketImage from "../../assets/pempek/paket.webp";
+import telurImage from "../../assets/pempek/telur.webp";
+const pempekItems = [
+  {
+    "name": "Pempek Adaan",
+    "description": "Smaller, round pempek, easy to eat in one bite.",
+    "imageSrc": adaanImage,
+    "price": "$2",
+    "url" : "pempek-adaan"
+  }
+];
+
+import { fade } from 'astro:transitions';
+
+---
+
+<main>
+
+  <div class="relative mx-auto px-8 max-w-7xl py-12   md:px-12">
+    <div
+      class="grid grid-cols-1  ">
+      {pempekItems.map(item => (
+        <figure>
+        <Image
+          class="w-full aspect-square rounded-3xl shadow-2xl"
+          src={item.imageSrc}
+          alt=`gambar dari ${item.description}`
+          transition:name={item.name}
+        />
+
+        <div class="mt-4 flex justify-between px-6">
+          <div>
+            <h3 class="text-sm text-negroni-500">
+              <a href={item.url}>
+                <span aria-hidden="true" class="absolute inset-0"></span>
+               {item.name}
+              </a>
+            </h3>
+            <p class="mt-1 text-lg font-medium leading-6 text-white">{item.description}</p>
+          </div>
+          <p class="text-base text-tomato-500">{item.price}</p>
+        </div>
+      </figure>))}
+     
+    </div>
+  </div>
+</main>
